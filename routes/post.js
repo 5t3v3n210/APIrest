@@ -3,7 +3,7 @@ const express = require('express'); // importar express
 const router = express.Router(); // crear una constante de router para conectar a index.js
 const Post = require('../models/Post'); // importar el modelo de post
 
-// GET all posts para que no se detenga el servidor
+
 router.get('/', async (req, res) => { // crear una ruta para obtener todos los posts de la base de datos
     try {
         const posts = await Post.find(); // busca todos los  posts en la base de datos
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => { // crear una ruta para obtener todos los p
         res.status(500).json({ message: err.message }); // devolver un error si no se encuentra el post
     }
 });
-
+//metodo get
 router.get('/:postId',async (req, res) => { // crear una ruta para obtener un post por el postid
     try {  
         const post = await Post.findById(req.params.postid); // busca el post por el id
